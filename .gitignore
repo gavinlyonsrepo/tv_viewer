@@ -1,7 +1,5 @@
-blobclass/__pycache__
-blobworld/__pycache__
-blobwork/__pycache__
 dist/
 build/
 .idea/
-blob_world.py.egg-info/
+untitled.ui
+output.py
