@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """python script """
-#=========================HEADER=======================================
+# =========================HEADER=======================================
 # title             :tv_viewer
 # description       :GUI to view tv program details
 # author            :Gavin Lyons
@@ -11,28 +11,32 @@
 # python_version    :3.6.0
 
 
-#==========================IMPORTS======================
+# ==========================IMPORTS======================
 # Import the system modules needed to run 
-from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+from PyQt5 import QtWidgets
+from PyQt5.QtGui import QIcon
 
 #my modules
 from tv_qt_class import Ui_MainWindow as Myqt
-
-#=======================GLOBALS=========================
-
-
-#====================FUNCTION SECTION===============================
+# =======================GLOBALS=========================
 
 
-#=====================MAIN===============================
+# ====================FUNCTION SECTION===============================
+
+
+# =====================MAIN===============================
 def test():
     """ docstring """
-    print("hello world")
+    print("main")
     pass
 
+
 if __name__ == "__main__":
-    import sys
+    test()
+
     app = QtWidgets.QApplication(sys.argv)
+    app.setWindowIcon(QIcon('/home/gavin/Documents/Tech/Linux/python/tv_viewer/desktop/tv_viewer.png'))
     Myqt.MainWindow = QtWidgets.QMainWindow()
     ui = Myqt()
     ui.setupUi(Myqt.MainWindow)

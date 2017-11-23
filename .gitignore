@@ -3,3 +3,6 @@ build/
 .idea/
 untitled.ui
 output.py
+tv_viewer/__pycache__
+tv_api_work/__pycache__
+tv_qt_class/__pycache__

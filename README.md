@@ -35,7 +35,6 @@ Usage
 
 Files and setup
 -----------------------------------------
-The Walking Dead | Season 8 | Episode 5 | The Big Scary U [AMC] [SPOILERS] 
 
 | File Path | Description |
 | ------ | ------ |

@@ -18,34 +18,37 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 #my modules
-import tv_api_work as api_work
+import tv_api_work
 
 
+# ======================GLOBALS=========================
+myTV = tv_api_work.Tvapi("Gavin")
 
-
-
-#=======================GLOBALS=========================
-
-
-#====================FUNCTION SECTION===============================
+# ===================FUNCTION SECTION===============================
 
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.ScreenStatus = 0
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         # Buttons
-        self.EnterBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.EnterBtn.setGeometry(QtCore.QRect(20, 500, 115, 30))
-        self.EnterBtn.setObjectName("EnterBtn")
-        self.UpcomingBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.UpcomingBtn.setGeometry(QtCore.QRect(340, 500, 115, 30))
-        self.UpcomingBtn.setObjectName("UpcomingBtn")
-        self.FavouritesBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.FavouritesBtn.setGeometry(QtCore.QRect(180, 500, 115, 30))
-        self.FavouritesBtn.setObjectName("FavouritesBtn")
+        self.OneBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.OneBtn.setGeometry(QtCore.QRect(20, 500, 115, 30))
+        self.OneBtn.setObjectName("OneBtn")
+        self.TwoBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.TwoBtn.setGeometry(QtCore.QRect(180, 500, 115, 30))
+        self.TwoBtn.setObjectName("TwoBtn")
+        self.ThreeBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.ThreeBtn.setGeometry(QtCore.QRect(340, 500, 115, 30))
+        self.ThreeBtn.setObjectName("ThreeBtn")
         self.ResetBtn = QtWidgets.QPushButton(self.centralwidget)
         self.ResetBtn.setGeometry(QtCore.QRect(500, 500, 115, 30))
         self.ResetBtn.setObjectName("Reset")
@@ -99,14 +102,17 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Tv Viewer"))
 
         # Buttons
-        self.EnterBtn.setText(_translate("MainWindow", "Enter "))
-        self.UpcomingBtn.setText(_translate("MainWindow", "Upcoming"))
-        self.UpcomingBtn.clicked.connect(self.upcoming_screen)
+        self.OneBtn.setText(_translate("MainWindow", "One "))
+        self.OneBtn.clicked.connect(self.OneButton_click)
 
-        self.FavouritesBtn.setText(_translate("MainWindow", "Favourites"))
+        self.TwoBtn.setText(_translate("MainWindow", "Two"))
+        self.TwoBtn.clicked.connect(self.TwoButton_click)
+
+        self.ThreeBtn.setText(_translate("MainWindow", "Three"))
+        self.ThreeBtn.clicked.connect(self.ThreeButton_click)
 
         self.ResetBtn.setText(_translate("MainWindow", "Reset"))
         self.ResetBtn.clicked.connect(self.reset_screen)
@@ -134,6 +140,7 @@ class Ui_MainWindow(object):
         self.actionExit.triggered.connect(self.close_application)
 
         # initalise listbox
+
         self.start_screen()
 
     def close_application(self):
@@ -151,30 +158,71 @@ class Ui_MainWindow(object):
         print("This is the about")
 
     def reset_screen(self):
+        """ reset button clicked"""
+        self.ScreenStatus = 0
         self.listinfo.clear()
         self.textEnter.clear()
         self.start_screen()
 
     def start_screen(self):
+        """initialise start screen list box"""
         self.listinfo.addItem("Welcome: ")
-        self.listinfo.addItem("Press Favourites for Favourites")
-        self.listinfo.addItem("Press Upcoming for Up-Coming Tv Show's")
-        self.listinfo.addItem("Press Enter to search Tv Series")
+        self.listinfo.addItem("Press One to search Tv Series")
+        self.listinfo.addItem("Press Two for Favourites")
+        self.listinfo.addItem("Press Three for Up-Coming Tv Show's")
 
-    def upcoming_screen(self):
 
-        if self.textEnter.text():
-            self.listinfo.clear()
-            #items =[]
-            items = api_work.searchTvSeries(self.textEnter.text())
-            items = str(items)
-            print(items)
-            self.listinfo.addItem(items)
-        else:
-            print("empty box")
-            pass
 
-#=====================MAIN===============================
+    def OneButton_click(self):
+        """ button one clicked """
+
+        # Search screen status 0
+        if self.ScreenStatus == 0:
+            if self.textEnter.text():
+                self.listinfo.clear()
+                items = myTV.searchTvSeries(self.textEnter.text())
+                # print(items)
+                if not items:
+                    self.listinfo.addItem("There Is No Matching Tv Show")
+                else:
+                    items = str(items)
+                    self.listinfo.addItem(items)
+                    self.textEnter.clear()
+                    self.ScreenStatus = 1
+                    self.listinfo.addItem("Enter a row Number in Input Box and press one")
+                    return
+            else:
+                self.listinfo.addItem("Enter a TV show in Input Box and press one")
+
+        # pick show status 1
+        if self.ScreenStatus == 1:
+           if self.textEnter.text():
+                #get tv show
+                items = myTV.showTvSeries(self.textEnter.text())
+                # print(myTV.tvshowtable)
+                self.listinfo.clear()
+                self.listinfo.addItem(items)
+           else:
+               self.listinfo.addItem("Enter a row Number in Input Box")
+
+        return
+
+    def TwoButton_click(self):
+        """ button 3 clicked """
+        if self.ScreenStatus == 0:
+            print("button two")
+            self.listinfo.addItem("This functionality not available yet")
+
+    def ThreeButton_click(self):
+        """ button 3 clicked """
+        if self.ScreenStatus == 0:
+            self.listinfo.addItem("This functionality not available yet")
+
+
+
+
+
+# =====================MAIN===============================
 def test(text):
     """ docstring """
     print(text)
@@ -184,4 +232,4 @@ if __name__ == '__main__':
     test("main")
 else:
     test("Imported tv_qt_class")
-#=====================END===============================
+# =====================END===============================
