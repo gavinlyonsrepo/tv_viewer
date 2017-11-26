@@ -43,8 +43,11 @@ Make sure that python 3 and pip3 have been installed on your machine, then:
 sudo pip3 install tv_viewer
 ```
 
+Could not add pyqt5 to setup script for pip so this must be installed. manually 
+if installing via pip. [pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
+
 I have not tested it in windows 10 
-for this initial release version see to do list.
+for this initial release version, see to-do list.
 
 Usage
 -------------------------------------------

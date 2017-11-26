@@ -10,15 +10,15 @@ setup(
     keywords="televison tv_viewer tv maze SQLite PyQt gavin lyons schedule",
     url="https://github.com/gavinlyonsrepo/tv_viewer",
     download_url='https://github.com/gavinlyonsrepo/tv_viewer/archive/1.0.tar.gz',
-    packages=['tv_viewer' 'tv_qt_class','tv_sqllite','tv_api_work',],
+    packages=['tv_viewer','tv_qt_class','tv_sqllite','tv_api_work'],
     data_files=[('/usr/share/doc/tv_viewer/', ['README.md']),
-                 ('/usr/share/pixmaps/', ['desktop/tv_viewer.png'])
-                 ('/usr/share/applications/'), ['desktop/tv_viewer']],
-    install_requires=['pip','pytvmaze','prettytable', 'pyqt5',],
+                 ('/usr/share/pixmaps/', ['desktop/tv_viewer.png']),
+                 ('/usr/share/applications/', ['desktop/tv_viewer.desktop'])],
+    install_requires=['pip','pytvmaze','prettytable',],
     setup_requires=['pip'],
     scripts=['tv_viewer/tv_viewer.py'],
     classifiers=[
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.4",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
 )
