@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-""" tv_viewer : Python PyQt5 GUI to view tv program details using tvmaze API """
+""" tv_viewer : GUI to view tv program details using TV maze application
+programming interface. Written in python 3 and PyQt 5, it also stores user favourites in an
+SQLite database. It uses python module pytvmaze to interface with API
+and python module prettytable to help display results."""
 # =========================MAIN SCRIPT HEADER=======================================
-# author            :Gavin Lyons
 # title             :tv_viewer
 # description       :Python PyQt5 GUI to view tv program details using tvmaze API and SQllite3 database
 # author            :Gavin Lyons

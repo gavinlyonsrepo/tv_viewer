@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=tv_viewer
+GenericName=tv_viewer
+Comment=television program schedule viewer
+Exec=tv_viewer
+Icon=tv_viewer
+Categories=Multimedia
+Type=Application
+Terminal=false

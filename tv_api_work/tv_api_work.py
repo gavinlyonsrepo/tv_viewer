@@ -114,15 +114,15 @@ class TvApi(object):
     def tv_maze_date(self, showname):
         """ method to calculate days to next episode takes in showname
         returns deltadate and releaseDate"""
-        show = self.tvn.get_show(show_name=showname)
-        current_date = datetime.strptime(datetime.now().strftime('%Y-%m-%d'), '%Y-%m-%d')
         try:
+            show = self.tvn.get_show(show_name=showname)
+            current_date = datetime.strptime(datetime.now().strftime('%Y-%m-%d'), '%Y-%m-%d')
             next_release_date = datetime.strptime(show.next_episode.airdate, '%Y-%m-%d').date()
             delta_date = (next_release_date - current_date.date()).days
         except Exception as tv_maze_datee:
             print("Except: tv_api_work, tv_maze_date, {}, {}".format(tv_maze_datee, showname))
-            next_release_date = "---"
-            delta_date = "---"
+            next_release_date = "n/a"
+            delta_date = "n/a"
         return delta_date, next_release_date
 
     def overview(self, row_no):

@@ -212,17 +212,18 @@ class Ui_MainWindow(object):
     def display_help(self):
         """ Method to display about information on menubar about click"""
         self.listinfo.clear()
-        self.listinfo.addItem("\nReadme at URL: \n https://github.com/gavinlyonsrepo/tv_viewer ")
+        self.listinfo.addItem("\n Readme at /usr/share/doc/tv_viewer/")
 
 
     def display_about(self):
         """ Method to display about information on menubar help click"""
         self.listinfo.clear()
-        self.listinfo.addItem("\nGUI program to view tv program details using tvmaze API")
-        self.listinfo.addItem("\nCopyright Gavin Lyons 2017 GPL")
-        self.listinfo.addItem("\nglyons66@hotmail.com")
-        self.listinfo.addItem("\nhttps://github.com/gavinlyonsrepo/tv_viewer")
-        self.listinfo.addItem("\nusing Python 3.6.0, PyQt5, pytvmaze, sqllite3, prettytable")
+        self.listinfo.addItem("\n GUI program to view tv program details using tvmaze API \
+                               \n Version 1.0-1 \
+                               \n Copyright Gavin Lyons 2017 GPL \
+                               \n glyons66@hotmail.com \
+                               \n https://github.com/gavinlyonsrepo/tv_viewer \
+                               \n Using Python 3.6.0, PyQt5, pytvmaze, sqllite3, prettytable")
 
     def reset_screen(self):
         """ reset button clicked"""
