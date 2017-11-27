@@ -51,7 +51,7 @@ for this initial release version, see to-do list.
 
 Usage
 -------------------------------------------
-type in terminal to launch or select from Desktop under Multimedia
+type below in terminal to launch *or* select icon from Desktop app menus under Other.
 
 ```sh
 tv_viewer.py 

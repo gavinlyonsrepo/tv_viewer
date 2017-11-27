@@ -2,8 +2,8 @@
 Name=tv_viewer
 GenericName=tv_viewer
 Comment=television program schedule viewer
-Exec=tv_viewer
+Exec=tv_viewer.py
 Icon=tv_viewer
-Categories=Multimedia
+Categories=Other
 Type=Application
 Terminal=false
