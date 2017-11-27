@@ -22,7 +22,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 
 # My modules
-from tv_qt_class import Ui_MainWindow as Myqt
+from tv_qt_class import tv_qt_class as myqt
 
 
 # =====================MAIN===============================
@@ -30,9 +30,10 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     app.setWindowIcon(QIcon('/usr/share/pixmaps/tv_viewer.png'))
-    Myqt.MainWindow = QtWidgets.QMainWindow()
-    ui = Myqt()
-    ui.setupUi(Myqt.MainWindow)
-    Myqt.MainWindow.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = myqt.Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
 # =====================END===============================
+

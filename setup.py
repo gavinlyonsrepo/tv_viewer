@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="tv_viewer",
-    version="1.0",
+    version="1.0.1",
     author="Gavin Lyons",
     author_email="glyons66@hotmail.com",
     description="Python PyQt5 GUI to view tv program details using tvmaze API and SQLite",

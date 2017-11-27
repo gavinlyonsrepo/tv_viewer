@@ -16,8 +16,8 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 
 # my modules
-import tv_api_work
-import tv_sqllite
+from tv_api_work import tv_api_work as myApi
+from tv_sqllite import tv_sqllite as mySql
 
 # ===================GLOBALS======================================
 # path for db to hold favs
@@ -32,9 +32,9 @@ class Ui_MainWindow(object):
     def __init__(self):
         self.ScreenStatus = 0
         # define instance of the API class
-        self.myTvApi = tv_api_work.TvApi("myapiobject")
+        self.myTvApi = myApi.TvApi("myapiobject")
         # define instance of the SQl class
-        self.myTvSql = tv_sqllite.TvSqLight("mysqlobject", DESTCONFIG + "/" + "fav.db")
+        self.myTvSql = mySql.TvSqLight("mysqlobject", DESTCONFIG + "/" + "fav.db")
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
