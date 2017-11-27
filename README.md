@@ -37,17 +37,15 @@ tv_viewer can be installed by PKGBUILD. The PKGBUILD file is available in the AU
     AUR location: https://aur.archlinux.org/packages/tv_viewer/
 
 
-For other Linux OS users.
+For other Linux OS users, the program is present in pyhton package index, Pypi.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
 ```sh
 sudo pip3 install tv_viewer
 ```
 
-Could not add pyqt5 to setup script for pip so this must be installed. manually 
+Could not add pyqt5 to setup script for pip so this must be installed manually, 
 if installing via pip. [pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
 
-I have not tested it in windows 10 
-for this initial release version, see to-do list.
 
 Usage
 -------------------------------------------
@@ -57,7 +55,7 @@ type below in terminal to launch *or* select icon from Desktop app menus under O
 tv_viewer.py 
 ```
 
-Files and setup
+Files 
 -----------------------------------------
 
 | File Path | Description |
@@ -65,6 +63,7 @@ Files and setup
 | $HOME/.config/tv_viewer/fav.db | Database created by program |
 | /usr/share/doc/tv_viewer/README.md | Help |
 | /usr/share/pixmaps/tv_viewer.png | icon |
+| /usr/share/applications/tv_viewer.desktop | desktop entry |
 | tv_viewer.py | main executable python script |
 | tv_qt_class.py | python module dealing with PyQt code |
 | tv_sqllite.py | python module dealing with SQLite code |
@@ -118,8 +117,6 @@ To Do
 * Code the "Upcoming shows" Function.
 * Logging and enhanced error handling.
 * Optimise text formatting in favourites screen.
-* Test installation in windows environment.
-
 
 See Also
 -----------
