@@ -102,11 +102,13 @@ class TvApi(object):
         from db returns the new data_table for display"""
         data_table = ""
         try:
-            data_table = PrettyTable(vertical_char=" ", padding_width=5)
+
+            data_table = PrettyTable(vertical_char=" ", padding_width=6)
             for num, name in database:
                 delta_date, next_release_date = self.tv_maze_date(name)
-                data_table.field_names = ["Maze_id", "series name", "Days to next", "Next episode"]
-                data_table.add_row([num, name, delta_date, next_release_date])
+                data_table.field_names = ["Days till", "Next episode", "Maze_id", "series name" ]
+                data_table.add_row([delta_date, next_release_date, num, name, ])
+            data_table.isprintable(True)
         except Exception as favour_showe:
             print("Except: tv-Api_work, favour_show, {}".format(favour_showe))
         return data_table
