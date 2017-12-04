@@ -12,7 +12,18 @@ database interaction, contains one class TvSqLight , 6 methods"""
 
 # ==========================IMPORTS======================
 # Import the system modules needed to run
+import os
 import sqlite3
+
+
+from logger_conf import logger_conf as myLog
+
+# ====================== GLOBALS =======================
+# setup logging
+logger = myLog.my_logging(__name__)
+DESTCONFIG = os.environ['HOME'] + "/.config/tv_viewer"
+if not os.path.exists(DESTCONFIG):
+    os.makedirs(DESTCONFIG)
 
 # ====================CLASS SECTION===============================
 
@@ -20,13 +31,16 @@ import sqlite3
 class TvSqLight(object):
     """class to interact with sqlite database contains 6 methods, create close
     the database. add, delete, scan, and display data. object is initialise with a path"""
-    def __init__(self, name, path):
+    # path for db to hold favs
+
+
+    def __init__(self, name):
         self.name = name
         self.connection = ""
-        self.path = path
+        self.path = DESTCONFIG + "/" + "fav.db"
 
     def create_db(self):
-        """ Method to create the database two fields"""
+        """ Method to create the database one table two fields"""
         try:
             conn = sqlite3.connect(self.path)
             self.connection = conn.cursor()
@@ -34,59 +48,75 @@ class TvSqLight(object):
                     number integer,
                     name text
                     )""")
-        except Exception as create_dbe:
-            print("Error tv_sqlilite create_db  {} {}".format(create_dbe, self.path))
+        except sqlite3.OperationalError:
+            logger.exception(" Failed to Create database: ")
 
     def scan_db(self, mazeid):
         """Method to scan scan database for an ID, return true if it exists, False if not"""
-        flag = True
-        conn = sqlite3.connect(self.path)
-        self.connection = conn.cursor()
-        self.connection.execute("SELECT * FROM shows WHERE number=:number", {'number': mazeid})
-        if not self.connection.fetchall():
-            # empty list if not in database
+        try:
+            flag = True
+            conn = sqlite3.connect(self.path)
+            self.connection = conn.cursor()
+            self.connection.execute("SELECT * FROM shows WHERE number=:number", {'number': mazeid})
+            if not self.connection.fetchall():
+                # empty list if not in database
+                flag = False
+        except sqlite3.Error:
             flag = False
+            logger.exception(" Failed to Scan database: ")
         return flag
 
     def display_db(self):
         """ method to display database called from Favs screen"""
-        conn = sqlite3.connect(self.path)
-        self.connection = conn.cursor()
-        self.connection.execute("SELECT * FROM shows")
+        try:
+            conn = sqlite3.connect(self.path)
+            self.connection = conn.cursor()
+            self.connection.execute("SELECT * FROM shows")
+        except sqlite3.Error:
+            logger.exception(" Failed to Display database: ")
         return self.connection.fetchall()
 
     def add_db(self, mazeid, showname):
         """ method to add record to database called by Fav edit button"""
-        conn = sqlite3.connect(self.path)
-        self.connection = conn.cursor()
-        with conn:
-            self.connection.execute("INSERT INTO shows VALUES (:number, :name)", {'number': mazeid, 'name': str(showname)})
+        try:
+            conn = sqlite3.connect(self.path)
+            self.connection = conn.cursor()
+            with conn:
+                self.connection.execute("INSERT INTO shows VALUES (:number, :name)", {'number': mazeid, 'name': str(showname)})
+        except sqlite3.Error:
+            logger.exception(" Failed to Add record database: ")
         return
 
     def del_db(self, maze_id):
         """ method to delete record to database called by Fav edit button"""
-        conn = sqlite3.connect(self.path)
-        self.connection = conn.cursor()
-        with conn:
-            self.connection.execute("DELETE FROM shows WHERE number=:number", {'number': maze_id})
+        try:
+            conn = sqlite3.connect(self.path)
+            self.connection = conn.cursor()
+            with conn:
+                self.connection.execute("DELETE FROM shows WHERE number=:number", {'number': maze_id})
+        except sqlite3.Error:
+            logger.exception(" Failed to remove record database: ")
         return
 
     def close_db(self):
         """method to close database connection at end of program"""
-        conn = sqlite3.connect(self.path)
-        self.connection = conn.cursor()
-        self.connection.close()
-
+        try:
+            conn = sqlite3.connect(self.path)
+            self.connection = conn.cursor()
+            self.connection.close()
+        except sqlite3.Error:
+            logger.exception(" Failed to close database: ")
+        return
 # =====================MAIN===============================
 
 
 def test(text):
     """ testing imported """
-    print(text)
+    logger.info(text)
 
 
 if __name__ == '__main__':
-    test("main")
+    test(" main")
 else:
-    test("Imported {}".format(__name__))
+    test("   Imported {}".format(__name__))
 # =====================END===============================

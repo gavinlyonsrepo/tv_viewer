@@ -18,12 +18,15 @@ from PyQt5 import QtCore, QtWidgets
 # my modules
 from tv_api_work import tv_api_work as myApi
 from tv_sqllite import tv_sqllite as mySql
+from logger_conf import logger_conf as myLog
 
 # ===================GLOBALS======================================
-# path for db to hold favs
-DESTCONFIG = os.environ['HOME'] + "/.config/tv_viewer"
-if not os.path.exists(DESTCONFIG):
-    os.makedirs(DESTCONFIG)
+
+
+# setup logging
+
+logger = myLog.my_logging(__name__)
+
 
 # ===================CLASSES & FUNCTION SECTION===============================
 
@@ -34,60 +37,59 @@ class Ui_MainWindow(object):
         # define instance of the API class
         self.myTvApi = myApi.TvApi("myapiobject")
         # define instance of the SQl class
-        self.myTvSql = mySql.TvSqLight("mysqlobject", DESTCONFIG + "/" + "fav.db")
+        self.myTvSql = mySql.TvSqLight("mysqlobject")
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(896, 672)
-
+        MainWindow.resize(1100, 800)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         # Buttons
         self.OneBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.OneBtn.setGeometry(QtCore.QRect(20, 550, 100, 30))
+        self.OneBtn.setGeometry(QtCore.QRect(20, 600, 100, 30))
         self.OneBtn.setObjectName("OneBtn")
         self.TwoBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.TwoBtn.setGeometry(QtCore.QRect(140, 550, 100, 30))
+        self.TwoBtn.setGeometry(QtCore.QRect(140, 600, 100, 30))
         self.TwoBtn.setObjectName("TwoBtn")
         self.ThreeBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.ThreeBtn.setGeometry(QtCore.QRect(260, 550, 100, 30))
+        self.ThreeBtn.setGeometry(QtCore.QRect(260, 600, 100, 30))
         self.ThreeBtn.setObjectName("ThreeBtn")
         self.FourBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.FourBtn.setGeometry(QtCore.QRect(380, 550, 100, 30))
+        self.FourBtn.setGeometry(QtCore.QRect(380, 600, 100, 30))
         self.FourBtn.setObjectName("FourBtn")
         self.FiveBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.FiveBtn.setGeometry(QtCore.QRect(500, 550, 100, 30))
+        self.FiveBtn.setGeometry(QtCore.QRect(500, 600, 100, 30))
         self.FiveBtn.setObjectName("FiveBtn")
         self.ResetBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.ResetBtn.setGeometry(QtCore.QRect(620, 550, 100, 30))
+        self.ResetBtn.setGeometry(QtCore.QRect(620, 600, 100, 30))
         self.ResetBtn.setObjectName("Reset")
         self.ExitBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.ExitBtn.setGeometry(QtCore.QRect(740, 550, 100, 30))
+        self.ExitBtn.setGeometry(QtCore.QRect(740, 600, 100, 30))
         self.ExitBtn.setObjectName("Exit")
 
         # radio buttons
         self.OverviewRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.OverviewRbtn.setGeometry(QtCore.QRect(750, 30, 136, 27))
+        self.OverviewRbtn.setGeometry(QtCore.QRect(970, 30, 136, 27))
         self.OverviewRbtn.setObjectName("OverviewRbtn")
         self.ActorsRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.ActorsRbtn.setGeometry(QtCore.QRect(750, 80, 136, 27))
+        self.ActorsRbtn.setGeometry(QtCore.QRect(970, 80, 136, 27))
         self.ActorsRbtn.setObjectName("ActorsRbtn")
         self.seasonRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.seasonRbtn.setGeometry(QtCore.QRect(750, 130, 136, 27))
+        self.seasonRbtn.setGeometry(QtCore.QRect(970, 130, 136, 27))
         self.seasonRbtn.setObjectName("seasonRbtn")
         self.crewsRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.crewsRbtn.setGeometry(QtCore.QRect(750, 180, 136, 27))
+        self.crewsRbtn.setGeometry(QtCore.QRect(970, 180, 136, 27))
         self.crewsRbtn.setObjectName("crewsRbtn")
         self.infoRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.infoRbtn.setGeometry(QtCore.QRect(750, 230, 136, 27))
+        self.infoRbtn.setGeometry(QtCore.QRect(970, 230, 136, 27))
         self.infoRbtn.setObjectName("infoRbtn")
         self.episodeRbtn = QtWidgets.QRadioButton(self.centralwidget)
-        self.episodeRbtn.setGeometry(QtCore.QRect(750, 280, 136, 27))
+        self.episodeRbtn.setGeometry(QtCore.QRect(970, 280, 136, 27))
         self.episodeRbtn.setObjectName("episodeRbtn")
 
         # List box
         self.listinfo = QtWidgets.QListWidget(self.centralwidget)
-        self.listinfo.setGeometry(QtCore.QRect(20, 30, 721, 435))
+        self.listinfo.setGeometry(QtCore.QRect(20, 30, 940, 505))
         self.listinfo.setObjectName("listinfo")
         self.listinfo.setWordWrap(True)
         self.listinfo.setProperty("isWrapping", False)
@@ -95,9 +97,10 @@ class Ui_MainWindow(object):
         self.listinfo.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.listinfo.setMovement(QtWidgets.QListView.Static)
 
+
         # text box
         self.textEnter = QtWidgets.QLineEdit(self.centralwidget)
-        self.textEnter.setGeometry(QtCore.QRect(20, 500, 721, 32))
+        self.textEnter.setGeometry(QtCore.QRect(20, 560, 820, 32))
         self.textEnter.setObjectName("textEnter")
 
         # labels
@@ -105,7 +108,7 @@ class Ui_MainWindow(object):
         self.mainlbl.setGeometry(QtCore.QRect(20, 5, 301, 22))
         self.mainlbl.setObjectName("mainlbl")
         self.txtlbl = QtWidgets.QLabel(self.centralwidget)
-        self.txtlbl.setGeometry(QtCore.QRect(20, 475, 79, 22))
+        self.txtlbl.setGeometry(QtCore.QRect(20, 535, 90, 22))
         self.txtlbl.setObjectName("txtlbl")
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -166,11 +169,11 @@ class Ui_MainWindow(object):
         self.ExitBtn.clicked.connect(self.close_application)
 
         # labels
-        self.mainlbl.setText(_translate("MainWindow", "Information"))
-        self.txtlbl.setText(_translate("MainWindow", "Input"))
+        self.mainlbl.setText(_translate("MainWindow", "Information Display"))
+        self.txtlbl.setText(_translate("MainWindow", "Input Box"))
 
         # Menubar events
-        self.menuFile.setTitle(_translate("MainWindow", "Misc"))
+        self.menuFile.setTitle(_translate("MainWindow", "Menu"))
         # about
         self.actionAbout.setText(_translate("MainWindow", "About"))
         self.actionAbout.setShortcut("Ctrl+A")
@@ -199,27 +202,30 @@ class Ui_MainWindow(object):
         self.start_screen()
 
         # create the database
-        if not self.myTvSql.create_db():
-            # error
-            pass
+        self.myTvSql.create_db()
+
+
 
     def close_application(self):
         """ Method control exit of program on exit button click closes database"""
         self.myTvSql.close_db()
-        print("Goodbye,  Exit")
+        logger.info(' Program Exiting ')
         sys.exit()
 
     def display_help(self):
         """ Method to display about information on menubar about click"""
         self.listinfo.clear()
-        self.listinfo.addItem("\n Readme at /usr/share/doc/tv_viewer/")
+        self.listinfo.addItem("\n Readme at :- \
+                               \n /usr/share/doc/tv_viewer/\
+                               \n or\
+                               \n https://github.com/gavinlyonsrepo/tv_viewer")
 
 
     def display_about(self):
         """ Method to display about information on menubar help click"""
         self.listinfo.clear()
         self.listinfo.addItem("\n GUI program to view tv program details using tvmaze API \
-                               \n Version 1.0-1 \
+                               \n Version 1.1 \
                                \n Copyright Gavin Lyons 2017 GPL \
                                \n glyons66@hotmail.com \
                                \n https://github.com/gavinlyonsrepo/tv_viewer \
@@ -230,6 +236,7 @@ class Ui_MainWindow(object):
         self.ScreenStatus = 0
         self.listinfo.clear()
         self.textEnter.clear()
+        self.mainlbl.setText("Information Display")
         self.OneBtn.setEnabled(True)
         self.TwoBtn.setEnabled(False)
         self.FourBtn.setEnabled(True)
@@ -239,12 +246,12 @@ class Ui_MainWindow(object):
     def start_screen(self):
         """initialise start screen list box"""
         self.listinfo.addItem("Welcome: ")
-        self.listinfo.addItem("\nWrite a tv show name in input box and then press Enter to search Tv Series")
+        self.listinfo.addItem("\nWrite a tv show name in Input box and then press Enter to search Tv Series")
         self.listinfo.addItem("\nPress View Favs for Favourites")
         self.listinfo.addItem("\nPress Reset to reset screen")
 
     def one_button_click(self):
-        """ button one clicked method"""
+        """ button one ENTER clicked method"""
         self.FourBtn.setEnabled(False)
         # Search show, screenstatus =0, by inputing text
         if self.ScreenStatus == 0:
@@ -252,16 +259,17 @@ class Ui_MainWindow(object):
                 self.listinfo.clear()
                 items = self.myTvApi.search_tv_series(self.textEnter.text())
                 if not items:
-                    self.listinfo.addItem("\nThere Is No Matching Tv Show :-")
+                    self.listinfo.addItem("There Is No Matching Tv Show :-")
                 else:
                     items = str(items)
                     self.listinfo.addItem(items)
                     self.textEnter.clear()
                     self.ScreenStatus = 1
-                    self.listinfo.addItem("\nTo pick a show, enter a row Number in Input Box and press Enter button :-")
+                    self.listinfo.addItem("To pick a show, enter a row Number in Input Box and press Enter button :-")
+                    self.mainlbl.setText("TV show selection screen")
                     return
             else:
-                self.listinfo.addItem("\nEnter a TV show name in Input Box and press Enter button :-")
+                self.listinfo.addItem("Enter a TV show name in Input Box and press Enter button :-")
 
         # pick show, screenstatus 1, by selecting row number
         if self.ScreenStatus == 1:
@@ -269,22 +277,27 @@ class Ui_MainWindow(object):
                 # get tv show
                 items = self.myTvApi.show_tv_series(self.textEnter.text())
                 if not items:
-                    self.listinfo.addItem("\nPick a correct row number :-")
+                    self.listinfo.addItem("Pick a correct row number :-")
                 else:
                     self.listinfo.clear()
                     self.listinfo.addItem(str(items))
                     self.OneBtn.setEnabled(False)
                     self.TwoBtn.setEnabled(True)
-                    self.listinfo.addItem("\nPick an information option on right and then press Select :-")
+                    self.FiveBtn.setEnabled(True)
+                    self.mainlbl.setText("Tv show information screen")
+                    self.listinfo.addItem("Pick an information option on right and then press Select :-")
+                    self.listinfo.addItem("You can also toggle Favorite status by entering maze_id in "
+                                          "in the Input  box and pressing Edit Favs :-")
             else:
-                self.listinfo.addItem("\nEnter a row Number in Input Box and press Enter Button :-")
+                self.listinfo.addItem("Enter a row Number in Input Box and press Enter Button :-")
 
         return
 
     def two_button_click(self):
-        """ method to control button 2 click"""
+        """ method to control button 2 SELECT click"""
         self.textEnter.clear()
         self.listinfo.clear()
+        self.FiveBtn.setEnabled(False)
         # Scan radio buttons to see if selected run the function for that selection
         # pass the row no of table to relevant TvApi function so it knows show
         if self.OverviewRbtn.isChecked():
@@ -300,17 +313,17 @@ class Ui_MainWindow(object):
         elif self.episodeRbtn.isChecked():
             self.listinfo.addItem(str(self.myTvApi.episode(0)))
         else:
-            self.listinfo.addItem("\nSelect an option from side bar:-")
+            self.listinfo.addItem("Select an option from side bar:-")
 
     def three_button_click(self):
-        """ method to control button 3 click """
+        """ method to control button 3 UPCOMING click """
         # TODO
         self.textEnter.clear()
         self.listinfo.clear()
-        self.listinfo.addItem("\nThis functionality not available yet :-")
+        self.listinfo.addItem("This functionality not available yet :-")
 
     def four_button_click(self):
-        """ method to control button 4 click """
+        """ method to control button 4 FAVOURITES click """
         self.FiveBtn.setEnabled(True)
         self.FourBtn.setEnabled(False)
         self.OneBtn.setEnabled(False)
@@ -318,12 +331,14 @@ class Ui_MainWindow(object):
         self.ScreenStatus = 0
         items = self.myTvApi.favour_show(self.myTvSql.display_db())
         self.listinfo.addItem(str(items))
-        self.listinfo.addItem("Enter a maze_ID and press Edit Favs button")
-        self.listinfo.addItem("If the ID is present in database it will be Deleted")
-        self.listinfo.addItem("If the ID is not in database it will be added :-")
+        self.listinfo.addItem("Enter a maze_ID and press Edit Favs button, If present in database")
+        self.listinfo.addItem("it will be Deleted, if not present it will be added :- ")
+        self.mainlbl.setText("Favourites Information Screen")
 
     def five_button_click(self):
-        """ method to control button 5 click"""
+        """ method to control button 5 EDIT FAVS click"""
+        self.OneBtn.setEnabled(False)
+        self.TwoBtn.setEnabled(False)
         mazeid = self.textEnter.text()
         if mazeid:
             # check if in database
@@ -332,6 +347,7 @@ class Ui_MainWindow(object):
                 # True delete if in database
                 self.myTvSql.del_db(mazeid)
                 self.four_button_click()
+                self.listinfo.addItem("Removed maze_id {} from the database:-".format(mazeid))
             else:
                 # False add if not in database
                 # check here if valid maze ID from API
@@ -339,20 +355,21 @@ class Ui_MainWindow(object):
                 if name != "Error":
                     self.myTvSql.add_db(mazeid, name)
                     self.four_button_click()
+                    self.listinfo.addItem("Added maze_id {} to the database:-".format(mazeid))
                 else:
-                    self.listinfo.addItem("\nCannot find that Maze_ID with API :-")
+                    self.listinfo.addItem("Cannot find that Maze_ID with API :-")
         else:
-            self.listinfo.addItem("\nAdd a Maze_Id and press again :-")
+            self.listinfo.addItem("Add a Maze_Id and press again :-")
 
 
 # =====================MAIN===============================
 def test(text):
-    """ docstring """
-    print(text)
+    """ Test module imported function """
+    logger.info(text)
 
 
 if __name__ == '__main__':
     test("main")
 else:
-    test("Imported {}".format(__name__))
+    test(" Imported {}".format(__name__))
 # =====================END===============================

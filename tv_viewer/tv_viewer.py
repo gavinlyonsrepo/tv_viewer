@@ -16,18 +16,18 @@ and python module prettytable to help display results."""
 
 # ==========================IMPORTS======================
 # Import the system modules needed to run
-
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 
 # My modules
 from tv_qt_class import tv_qt_class as myqt
-
+from logger_conf import logger_conf as myLog
 
 # =====================MAIN===============================
 if __name__ == "__main__":
-
+    logger = myLog.my_logging(__name__)
+    logger.info("  Main Loop Start")
     app = QtWidgets.QApplication(sys.argv)
     app.setWindowIcon(QIcon('/usr/share/pixmaps/tv_viewer.png'))
     MainWindow = QtWidgets.QMainWindow()
