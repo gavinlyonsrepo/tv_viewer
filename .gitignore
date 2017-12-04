@@ -6,4 +6,5 @@ tv_viewer/__pycache__
 tv_api_work/__pycache__
 tv_qt_class/__pycache__
 tv_sqllite/__pycache__
+logger_conf/__pycache__
 tv_viewer.egg-info
