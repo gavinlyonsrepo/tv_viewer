@@ -17,10 +17,10 @@ Table of contents
   * [Table of contents](#table-of-contents)
   * [Installation](#installation)
   * [Usage](#usage)
-  * [Files and setup](#files-and-setup)
+  * [Files](#files)
   * [Dependencies](#dependencies)
   * [Features](#features)
-  * [Log file](#logfile)
+  * [Log file](#log-file)
   * [To Do](#to-do)
   * [See Also](#see-also)
   * [Communication](#communication)
@@ -149,7 +149,8 @@ See Also
 There are screenshots in the repository. 
 
 
------------
+Communication
+-------------------
 If you should find a bug or you have any other query, 
 please send a report.
 Pull requests, suggestions for improvements
