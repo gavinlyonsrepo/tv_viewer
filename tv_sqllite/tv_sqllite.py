@@ -33,7 +33,6 @@ class TvSqLight(object):
     the database. add, delete, scan, and display data. object is initialise with a path"""
     # path for db to hold favs
 
-
     def __init__(self, name):
         self.name = name
         self.connection = ""

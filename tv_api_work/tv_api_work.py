@@ -58,7 +58,7 @@ class TvApi(object):
         returns datatable of extracted info or None"""
 
         try:
-            row_no=int(row_no)
+            row_no = int(row_no)
             # get name of show from row number
             tv_show_name = self.tvshowtable.get_string(border=False, header=False,
                                                        start=row_no, end=(row_no + 1),

@@ -220,7 +220,6 @@ class Ui_MainWindow(object):
                                \n or\
                                \n https://github.com/gavinlyonsrepo/tv_viewer")
 
-
     def display_about(self):
         """ Method to display about information on menubar help click"""
         self.listinfo.clear()
