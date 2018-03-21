@@ -9,7 +9,7 @@ setup(
     license="GPL",
     keywords="televison tv_viewer tv maze SQLite PyQt gavin lyons schedule API GUI",
     url="https://github.com/gavinlyonsrepo/tv_viewer",
-    download_url='https://github.com/gavinlyonsrepo/tv_viewer/archive/1.0.tar.gz',
+    download_url='https://github.com/gavinlyonsrepo/tv_viewer/archive/1.1.tar.gz',
     packages=['tv_viewer','tv_qt_class','tv_sqllite','tv_api_work','logger_conf'],
     data_files=[('/usr/share/doc/tv_viewer/', ['README.md']),
                  ('/usr/share/pixmaps/', ['desktop/tv_viewer.png']),
