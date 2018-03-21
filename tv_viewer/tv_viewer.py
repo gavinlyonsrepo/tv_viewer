@@ -8,7 +8,7 @@ and python module prettytable to help display results."""
 # description       :Python PyQt5 GUI to view tv program details using tvmaze API and SQllite3 database
 # author            :Gavin Lyons
 # date              :20/08/2017
-# version           :1.0
+# version           :1.1
 # web               :https://github.com/gavinlyonsrepo/tv_viewer
 # mail              :glyons66@hotmail.com
 # python_version    :3.6.0
