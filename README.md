@@ -30,15 +30,7 @@ Table of contents
 Installation
 -----------------------------------------------
 
-If you are an Arch linux OS user 
-tv_viewer can be installed by PKGBUILD. The PKGBUILD file is available in the AUR - Arch user repository. 
-
-    AUR package name :tv_viewer
-    AUR maintainer : glyons
-    AUR location: https://aur.archlinux.org/packages/tv_viewer/
-
-
-For other Linux OS users, the program is present in pyhton package index, Pypi.
+For Linux OS users, the program is present in python package index, Pypi.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
 ```sh
 sudo pip3 install tv_viewer
