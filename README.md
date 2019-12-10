@@ -21,7 +21,6 @@ Table of contents
   * [Dependencies](#dependencies)
   * [Features](#features)
   * [Log file](#log-file)
-  * [To Do](#to-do)
   * [See Also](#see-also)
   * [Communication](#communication)
   * [History](#history)
