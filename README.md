@@ -124,12 +124,6 @@ The software should catch most issues
 and output them there. Also displayed here are various other debug information.
 
 
-
-To Do
--------------------------------------
-* Code the "Upcoming shows" Function/Button
-
-
 See Also
 -----------
 * [TV maze API](http://www.tvmaze.com/api)
