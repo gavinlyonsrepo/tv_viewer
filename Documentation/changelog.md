@@ -11,5 +11,5 @@ Version control history:
 	* Optimize text formatting in favorites screen. 
 	* Ability to view and access favorites database from show TV details screens.
 
-* Version 1.1-2 111219
+* Version 1.2-4 111219
 	* Minor update so software can be installed and works in windows 10
