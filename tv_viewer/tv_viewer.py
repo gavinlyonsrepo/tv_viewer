@@ -20,6 +20,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 
+
 # My modules
 from tv_qt_class import tv_qt_class as myqt
 from logger_conf import logger_conf as myLog
@@ -29,7 +30,10 @@ if __name__ == "__main__":
     logger = myLog.my_logging(__name__)
     logger.info("  Main Loop Start")
     app = QtWidgets.QApplication(sys.argv)
-    app.setWindowIcon(QIcon('/usr/share/pixmaps/tv_viewer.png'))
+    if sys.platform == 'win32':
+    	pass
+    else:
+    	app.setWindowIcon(QIcon('/usr/share/pixmaps/tv_viewer.png'))
     MainWindow = QtWidgets.QMainWindow()
     ui = myqt.Ui_MainWindow()
     ui.setupUi(MainWindow)

@@ -215,7 +215,7 @@ class Ui_MainWindow(object):
     def display_help(self):
         """ Method to display about information on menubar about click"""
         self.listinfo.clear()
-        self.listinfo.addItem("\n Readme at :- \
+        self.listinfo.addItem("\n Readme(linux only) at :- \
                                \n /usr/share/doc/tv_viewer/\
                                \n or\
                                \n https://github.com/gavinlyonsrepo/tv_viewer")

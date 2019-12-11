@@ -15,7 +15,7 @@ Table of contents
 
   * [Overview](#overview)
   * [Table of contents](#table-of-contents)
-  * [Installation](#installation)
+  * [Installation and Setup](#installation-and-setup)
   * [Usage](#usage)
   * [Files](#files)
   * [Dependencies](#dependencies)
@@ -26,22 +26,30 @@ Table of contents
   * [History](#history)
   * [Copyright](#copyright)
 
-Installation
+Installation and Setup
 -----------------------------------------------
 
-For Linux OS users, the program is present in python package index, Pypi.
+The program is present in python package index, Pypi.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
+
 ```sh
 sudo pip3 install tv_viewer
 ```
 
-Could not add pyqt5 to setup script for pip so this must be installed manually, 
+Note: Could not add pyqt5 to setup script for pip so this must be installed manually, 
 if installing via pip. [pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
 
+The program uses the OS home environmental variable to know where to place database and log file
+It should be setup on most Operating systems. To view it type at a python prompt.
+
+```sh
+import os
+print(os.environ['home'])
+```
 
 Usage
 -------------------------------------------
-type below in terminal to launch *or* select icon from Desktop app menus under Other.
+type below in terminal  to launch *or* select icon from Desktop app menus under Other(linux only)
 
 ```sh
 tv_viewer.py 
@@ -53,9 +61,10 @@ Files
 | File Path | Description |
 | ------ | ------ |
 | $HOME/.config/tv_viewer/fav.db | Database created by program |
-| /usr/share/doc/tv_viewer/README.md | Help |
-| /usr/share/pixmaps/tv_viewer.png | icon |
-| /usr/share/applications/tv_viewer.desktop | desktop entry |
+| $HOME/.cache/tv_viewer/tvviewerlog_YYMMDD_HHMMSS | Log file |
+| /usr/share/doc/tv_viewer/README.md | Help Linux only |
+| /usr/share/pixmaps/tv_viewer.png | icon Linux only |
+| /usr/share/applications/tv_viewer.desktop | desktop entry Linux only |
 | tv_viewer.py | main executable python script |
 | tv_qt_class.py | python module dealing with PyQt code |
 | tv_sqllite.py | python module dealing with SQLite code |
@@ -107,7 +116,7 @@ Log file
 Debug log file to store information outputted by program is stored at 
 
 ```sh
-/tmp/tv_viewer.log
+| $HOME/.cache/tv_viewer/tvviewerlog_YYMMDD_HHMMSS
 ```
 sample output
 time: Level: module: message: + traceback error if available. 
@@ -136,23 +145,14 @@ There are screenshots in the repository.
 
 Communication
 -------------------
-If you should find a bug or you have any other query, 
-please send a report.
-Pull requests, suggestions for improvements
-and new features welcome.
 * Contact: Upstream repo at github site below or glyons66@hotmail.com
 * Upstream repository: [Github](https://github.com/gavinlyonsrepo/tv_viewer)
 
 History
 ------------------
-
 See changelog.md in documentation section for version control history
-
 
 Copyright
 ---------
-Copyright (C) 2017 Gavin Lyons 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public license published by
-the Free Software Foundation, see LICENSE.md in documentation section 
-for more details
+Copyright (C) 2017 Gavin Lyons, see LICENSE.md in documentation section 
+for more details.
