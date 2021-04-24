@@ -9,6 +9,9 @@ user favourites in an SQLite database.
 It uses python module pytvmaze to interface with API 
 and python module prettytable to help display results.
 * Author: Gavin Lyons 
+* Upstream repository: [Github](https://github.com/gavinlyonsrepo/tv_viewer)
+* History: See changelog.md in documentation section for version control history
+* Copyright: (C) 2017 Gavin Lyons, see LICENSE.md in documentation section 
 
 Table of contents
 ---------------------------
@@ -22,9 +25,7 @@ Table of contents
   * [Features](#features)
   * [Log file](#log-file)
   * [See Also](#see-also)
-  * [Communication](#communication)
-  * [History](#history)
-  * [Copyright](#copyright)
+
 
 Installation and Setup
 -----------------------------------------------
@@ -141,18 +142,3 @@ See Also
 * [SQLite](https://sqlite.org/)
 
 There are screenshots in the repository. 
-
-
-Communication
--------------------
-* Contact: Upstream repo at github site below or glyons66@hotmail.com
-* Upstream repository: [Github](https://github.com/gavinlyonsrepo/tv_viewer)
-
-History
-------------------
-See changelog.md in documentation section for version control history
-
-Copyright
----------
-Copyright (C) 2017 Gavin Lyons, see LICENSE.md in documentation section 
-for more details.
