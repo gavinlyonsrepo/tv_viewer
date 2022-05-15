@@ -118,7 +118,7 @@ Dependencies
 
 Features
 ----------------------
-From the menu bar a user can select *about*, *help* and *exit* options.
+From the menu bar a user can select about, help and exit options.
 From here they can also view latest log file and configuration file contents.
 
 The TV maze API associates a unique ID with each TV show called the Maze_ID.
@@ -127,7 +127,7 @@ On the main screen the user is prompted to enter name of show in input box.
 The software then returns a list of television shows based on the input.
 The user can then select the show by row number and is presented with 
 various details of it. From here they select more detailed information 
-by selecting one of the radio buttons and pressing *Select*. 
+by selecting one of the radio buttons and pressing details.
 Options include overview, seasons, cast, 
 crew, episodes and more miscellaneous information. 
 They can also view and/or toggle the favourite status of  show by 
@@ -135,28 +135,25 @@ pressing delete or add favourite button.
 
 The software also includes a favourite function where user 
 can store favourites TV shows in a database.
-The database has one table *shows* and two fields *name* and *number*.
+The database has one table show and two fields name and number.
 the maze_ID of the show is stored at number.
-The contents of the database can be displayed by pressing *View Favs* button.
-Favourites records can be added by entering an existing maze_id in input box 
+The contents of the database can be displayed by pressing Favourites  button.
+Favourites records can be added by entering a maze_id in input box 
 and pressing  add favourite button, records can be deleted by adding a maze_id 
-of show not in database and pressing delete favourite button.
+of show in database and pressing delete favourite button.
 The favourite section will also show next episode date 
 and days till next episode. You also access the tv show details screen from here 
 by adding a maze_id and pressing search.
-
 A reset and exit button is also available. 
 There is a status light with 3 colours
 
 1. Green : ready 
-2. yellow : busy , acessing network or files
-3. Red : network check failed , 
-
-The network check is carried out at start up and when certain buttons fail it can turned off.
+2. Yellow : busy , accessing network or files
+3. Red : network check failed, The network check is carried out at start up and when certain buttons fail it can turned off.
 
 Output
 --------------------
 
 There are screenshots in this repository in documentation folder. 
 
-![ ig](https://github.com/gavinlyonsrepo//tv_viewer/blob/master/Documentation/screenshots/tv_show_info_screen.png)
+![ image ](https://github.com/gavinlyonsrepo/tv_viewer/blob/master/Documentation/screenshots/tv_show_info_screen.png)
