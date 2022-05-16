@@ -13,7 +13,7 @@ setup(
     keywords="televison tv_viewer tv maze SQLite PyQt gavin lyons schedule API GUI",
     url="https://github.com/gavinlyonsrepo/tv_viewer",
     download_url='https://github.com/gavinlyonsrepo/tv_viewer/archive/2.2.tar.gz',
-    packages=['tv_viewer','tv_qt_class','tv_sqllite','tv_api_work','tv_logger_conf']
+    packages=['tv_viewer','tv_qt_class','tv_sqllite','tv_api_work','tv_logger_conf'],
     install_requires=['pip','pytvmaze','prettytable',],
     setup_requires=['pip'],
     scripts=['tv_viewer/tv_viewer.py'],
