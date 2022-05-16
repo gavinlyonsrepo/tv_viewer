@@ -1,0 +1,8 @@
+
+
+1. Change AUR PKGBUILD from setup.py install 
+2. Install Windows desktop entry and icon ?
+3. Invesigate method of installing desktop entry with pip ?!?
+4. change typo in line 104 tv_logger_conf :: Win32 to win32
+5. setup.py change script sitting to "entry point" 
+6. Issue with ping on windows?
