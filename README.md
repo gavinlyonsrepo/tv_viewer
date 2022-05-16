@@ -33,23 +33,26 @@ Table of contents
 Installation and Setup
 -----------------------------------------------
 
-
 **pip PyPi**
 
 The program is present in python package index, Pypi.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
 
 ```sh
-sudo pip3 install tv_viewer
+pip3 install tv_viewer --user
 ```
 
-Note: Could not add pyqt5 to setup script for pip so this must be installed manually, 
-if installing via pip. It should already be installed on many systems. [pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
+Note 1: pyqt5 is not listed in setup.py script for pip so this must be installed separately, 
+if installing via pip. It should already be installed on many systems. 
+[pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
+
+Note 2 : The desktop entry (icon + .desktop file ) is not installed by pip
+When  program runs fro first time it will install form github if missing. 
 
 **Arch based Linux distribution**
 
 If you are using an arch Linux based system,
-the program is packaged in the [AUR](https://aur.archlinux.org/packages/tv_viewer)
+the program is packaged in the AUR as 'tv_viewer'
 
 Usage
 -------------------------------------------
@@ -67,9 +70,8 @@ Files
 | $HOME/.config/tv_viewer/fav.db | Favourite Database, created by program on startup |
 | $HOME/.config/tv_viewer/tvviewer.cfg | config file,  created by program on startup |
 | $HOME/.cache/tv_viewer/TVviewer_YYMMDD_HHMMSS.log | Log file Path can be adjusted in configfile |
-| /usr/share/doc/tv_viewer/README.md | Help, Linux only |
-| /usr/share/pixmaps/tv_viewer.png | icon, Linux only |
-| /usr/share/applications/tv_viewer.desktop | desktop entry, Linux only |
+| $HOME/.local/share/icons/tv_viewer.png | icon, Linux only |
+| $HOME/.local/share/applications/tv_viewer.desktop | desktop entry, Linux only |
 | tv_viewer.py | main executable python script |
 | tv_qt_class.py | python module dealing with PyQt code |
 | tv_sqllite.py | python module dealing with SQLite code |
@@ -79,7 +81,6 @@ Files
 Log file
 ----------------------------
 Debug log file to store information outputted by program is stored at 
-
 
 time: Level: module: message: + trace-back error if available. 
 ```sh
@@ -151,7 +152,7 @@ There is a status light with 3 colours
 2. Yellow : busy , accessing network or files
 3. Red : network check failed, The network check is carried out at start up and when certain buttons fail it can turned off.
 
-Output
+Screenshot
 --------------------
 
 There are screenshots in this repository in documentation folder. 

@@ -16,6 +16,7 @@ import re
 import glob
 import subprocess
 from pathlib import Path
+import os
 
 # External modules third party
 from PyQt5 import QtCore, QtWidgets
@@ -160,8 +161,6 @@ class Ui_MainWindow():
         # add action to menus
         self.action_about = QtWidgets.QAction(MainWindow)
         self.action_about.setObjectName("action_about")
-        self.action_help = QtWidgets.QAction(MainWindow)
-        self.action_help.setObjectName("action_help")
         self.action_log = QtWidgets.QAction(MainWindow)
         self.action_log.setObjectName("action_log")
         self.action_config = QtWidgets.QAction(MainWindow)
@@ -169,7 +168,6 @@ class Ui_MainWindow():
         self.action_exit = QtWidgets.QAction(MainWindow)
         self.action_exit.setObjectName("action_exit")
         self.menu_file.addAction(self.action_about)
-        self.menu_file.addAction(self.action_help)
         self.menu_file.addAction(self.action_log)
         self.menu_file.addAction(self.action_config)
         self.menu_file.addAction(self.action_exit)
@@ -220,11 +218,6 @@ class Ui_MainWindow():
         self.action_about.setShortcut("Ctrl+A")
         self.action_about.setStatusTip('App info')
         self.action_about.triggered.connect(self.display_about)
-        # help menu item
-        self.action_help.setText(_translate("MainWindow", "Help"))
-        self.action_help.setShortcut("Ctrl+H")
-        self.action_help.setStatusTip('Display The Help')
-        self.action_help.triggered.connect(self.display_help)
         # view log file
         self.action_log.setText(_translate("MainWindow", "LogFile"))
         self.action_log.setShortcut("Ctrl+L")
@@ -307,22 +300,6 @@ class Ui_MainWindow():
         except Exception as error:
             LOGGER.exception("Problem with network  %s ", error)
             self.busy_btn.setStyleSheet('background-color : red')
-
-    def display_help(self):
-        """ Method to display help information on menubar about click,
-        displays readme"""
-        self.listinfo.clear()
-        self.listinfo.addItem("Contents of Readme at /usr/share/doc/tv_viewer/\n")
-        try:
-            if sys.platform == 'win32':  # TODO
-                self.listinfo.addItem(
-                    "Readme not installed currently on windows version")
-            else:
-                with open("/usr/share/doc/tv_viewer/README.md", "r", encoding="utf-8") as file1:
-                    self.listinfo.addItem(file1.read())
-        except FileNotFoundError:
-            LOGGER.exception(
-                "Problem with Readme file /usr/share/doc/tv_viewer/README.md")
 
     def display_about(self):
         """ Method to display about information on menubar help click"""

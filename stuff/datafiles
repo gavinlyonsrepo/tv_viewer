@@ -1,0 +1,3 @@
+data_files=[../(os.environ['HOME'] + '/.local/share/doc/tv_viewer/', ['README.md']),
+                    ../(os.environ['HOME'] + '/.local/share/icons/', ['desktop/tv_viewer.png']),
+                    ../(os.environ['HOME'] + '/.local/share/applications/', ['desktop/tv_viewer.desktop'])],

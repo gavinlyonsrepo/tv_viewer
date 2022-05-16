@@ -15,6 +15,8 @@ and python module prettytable to help display results."""
 # ==========================IMPORTS======================
 # Import the system modules needed to run
 import sys
+import os
+from pathlib import Path
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
 
@@ -31,7 +33,7 @@ if __name__ == "__main__":
     if sys.platform == 'win32':
         pass  # Icon not installed in windows version currently, TODO
     else:
-        app.setWindowIcon(QIcon('/usr/share/pixmaps/tv_viewer.png'))
+        app.setWindowIcon(QIcon(os.environ['HOME'] + "/.local/share/icons/tv_viewer.png"))
     MainWindow = QtWidgets.QMainWindow()
     ui = myqt.Ui_MainWindow()
     ui.setupUi(MainWindow)

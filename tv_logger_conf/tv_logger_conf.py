@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """tv_logger_conf.py module used by tv_viewer program,
-imported into modules sets up logging and config file"""
+imported into modules sets up logging, config file and desktop entry"""
 # ======================== FILE HEADER =================
 # title             :tv_logger.conf
 # description       :Module to setup logging and config file handling
@@ -17,6 +17,7 @@ import sys
 import datetime
 import configparser
 from pathlib import Path
+import subprocess
 
 
 # ====================FUNCTION SECTION====================
@@ -95,6 +96,30 @@ def my_logging(module_name):
     return logger
 
 
+def install_desktop_entry():
+    """ On first run Will check to see if desktop entry,
+    desktop icon are installed if not installed install them
+    uses Curl , Linux only , if everything installed, does nothing"""
+    try:
+        if not sys.platform == 'Win32':
+            path_list = [os.environ['HOME'] + "/.local/share/icons/",
+                         os.environ['HOME'] + "/.local/share/applications/"]
+            github_list = ['https://raw.githubusercontent.com/gavinlyonsrepo/tv_viewer/master/desktop/tv_viewer.png',
+                           'https://raw.githubusercontent.com/gavinlyonsrepo/tv_viewer/master/desktop/tv_viewer.desktop']
+            file_list = ['tv_viewer.png', 'tv_viewer.desktop']
+            for (my_file, my_path, my_github_url) in zip(file_list, path_list, github_list):
+                if not os.path.exists(my_path):   # check if path exists
+                    os.makedirs(my_path)
+                if not os.path.isfile(my_path + '/' + my_file):   # check if file exists
+                    os.chdir(my_path)
+                    subprocess.run(['curl', '-s', '-o', my_file, my_github_url])
+    except Exception as error:
+        print("INFO 1202 :: Downloading desktop entry, icon,  from github ")
+        print(" failed . Github or network may be done or Curl not installed ")
+        print("Error message  :: ")
+        print(error)
+
+
 # =====================MAIN===============================
 myconfigfile = TvConfigFile("objectname")
 
@@ -103,6 +128,7 @@ def start(text):
     """ Sets up config file if not exist , reads it in and starts logging """
     myconfigfile.create_configfile_func()
     myconfigfile.read_configfile_func()
+    install_desktop_entry()
     logger = my_logging(__name__)
     logger.info(text)
 
