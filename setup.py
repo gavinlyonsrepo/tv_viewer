@@ -1,6 +1,4 @@
 from setuptools import setup
-from sys import platform
-import os
         
  
 setup(

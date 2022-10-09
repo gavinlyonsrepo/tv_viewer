@@ -1,4 +1,4 @@
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/whitelight976)
+[![Website](https://img.shields.io/badge/Website-Link-blue.svg)](https://gavinlyonsrepo.github.io/)  [![Rss](https://img.shields.io/badge/Subscribe-RSS-yellow.svg)](https://gavinlyonsrepo.github.io//feed.xml)  [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/whitelight976)
 
 Overview
 --------------------------------------------
@@ -37,17 +37,17 @@ Installation and Setup
 **pip PyPi**
 
 The program is present in python package index, Pypi.
+Developed and tested on Linux as a Linux App.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
 
 ```sh
 pip3 install tv_viewer --user
 ```
 
-Note 1: Dependency PyQt5 is not listed in setup.py script for pip so this must be installed separately, 
-if installing via pip. It should already be installed on many systems. 
+Note: Dependency PyQt5 is not listed in setup.py script for pip so this must be installed separately, 
+if installing via pip. It should already be installed on many Linux systems. 
 [pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
 
-Note 2: Windows users , Developed and tested on Linux as a Linux App, but the pip install will work on windows 10.  No desktop entry or icon and also there is an issue with ping which is used for network check, Network check is optional and can be switched off in config.
 
 **Arch based Linux distribution**
 
