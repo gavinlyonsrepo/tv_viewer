@@ -17,6 +17,7 @@ and python module prettytable to help display results.
 
 * Author: Gavin Lyons 
 * Upstream repository: [Github](https://github.com/gavinlyonsrepo/tv_viewer)
+* Developed and tested on Linux as a Linux App. 
 
 ## Table of contents
 
@@ -35,11 +36,9 @@ and python module prettytable to help display results.
 
 Latest version 2.3. 
 
-**PyPi & pip , pipx **
+**PyPi & pip , pipx**
 
 The program is present in python package index, Pypi.
-Developed and tested on Linux as a Linux App.
-Make sure that python 3 and pip3 have been installed on your machine, then: 
 Install using *pip* or *pipx* to the location or environment of your choice.
 
 
