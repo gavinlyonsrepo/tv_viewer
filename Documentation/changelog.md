@@ -23,3 +23,5 @@ Version control history:
 	* Option to display show details from favourites screen.
 	* Ability to select row numbers and maze ID from list box instead of using input box
 	
+* Version 2.3, 12-2023
+	* minor update added pyqt5 to setup.py

@@ -1,7 +1,8 @@
 [![Website](https://img.shields.io/badge/Website-Link-blue.svg)](https://gavinlyonsrepo.github.io/)  [![Rss](https://img.shields.io/badge/Subscribe-RSS-yellow.svg)](https://gavinlyonsrepo.github.io//feed.xml)  [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/whitelight976)
 
-Overview
---------------------------------------------
+
+## Overview
+
 * Name: tv_viewer
 * Title : Graphical user interface to view TV show details using the TV maze API 
 * Description: 
@@ -17,53 +18,58 @@ and python module prettytable to help display results.
 * Author: Gavin Lyons 
 * Upstream repository: [Github](https://github.com/gavinlyonsrepo/tv_viewer)
 
-Table of contents
----------------------------
+## Table of contents
 
   * [Overview](#overview)
   * [Table of contents](#table-of-contents)
   * [Installation and Setup](#installation-and-setup)
   * [Usage](#usage)
-  * [Files](#files)
-  * [Log file](#log-file)
-  * [Configuration file](#configuration-file)  
+  * [File system](#file-system)
+	* [Log file](#log-file)
+	* [Configuration file](#configuration-file)  
   * [Dependencies](#dependencies)
   * [Features](#features)
   * [Screenshot](#screenshot)
 
-Installation and Setup
------------------------------------------------
+## Installation and Setup
 
-**pip PyPi**
+Latest version 2.3. 
+
+**PyPi & pip , pipx **
 
 The program is present in python package index, Pypi.
 Developed and tested on Linux as a Linux App.
 Make sure that python 3 and pip3 have been installed on your machine, then: 
-
-```sh
-pip3 install tv_viewer --user
-```
-
-Note: Dependency PyQt5 is not listed in setup.py script for pip so this must be installed separately, 
-if installing via pip. It should already be installed on many Linux systems. 
-[pyqt info](https://stackoverflow.com/questions/38488063/add-pyqt5-to-install-require)
+Install using *pip* or *pipx* to the location or environment of your choice.
 
 
 **Arch based Linux distribution**
 
 If you are using an arch Linux based system,
-the program is packaged in the AUR as 'tv_viewer'
+the program is packaged in the AUR as 'tv_viewer'.
 
-Usage
--------------------------------------------
+**Manually install from github**
+
+The package is also archived on github and can be manually download and installed 
+via python and setup.py
+
+```sh
+curl -sL https://github.com/gavinlyonsrepo/tv_viewer/archive/2.3.tar.gz | tar xz
+cd tv_viewer-2.3
+python3 setup.py build 
+python3 setup.py install --user
+```
+
+## Usage
+
 type below in terminal  to launch *or* select icon from Desktop app menus under Other( Linux only)
 
 ```sh
 tv_viewer.py 
 ```
 
-Files 
------------------------------------------
+## File system
+
 
 | File Path | Description |
 | ------ | ------ |
@@ -83,8 +89,8 @@ and  (if installed by pip) downloads from github using curl the two files for th
 All files are placed in 'HOME'/.local/* . On Linux systems 'HOME' is defined by os.environ['HOME']
 on windows os.environ['HOMEPATH']
 
-Log file
-----------------------------
+### Log file
+
 A debug log file to store information outputted by program. 
 
 ```sh
@@ -98,8 +104,8 @@ The software should catch most issues
 and output them there. Also displayed here are various other debug information.
 Logging can be switched on and off in and the output path  can be changed.
 
-Configuration file
--------------------------------
+### Configuration file
+
 
 The configuration file is created on startup and populated by default values
 
@@ -110,8 +116,7 @@ The configuration file is created on startup and populated by default values
 | networkcheckonoff | or or off | on | toggles network test  uses ping |
 | networkurl | url | www.tvmaze.com | url to test by network test  |
 
-Dependencies
--------------------------------------
+## Dependencies
 
 | Dependencies | Usage |  URL |
 | ------ | ------ | ----- |
@@ -120,8 +125,8 @@ Dependencies
 | pyqt5 5.15.6 | GUI toolkit | [Link](http://pyqt.sourceforge.net/Docs/PyQt5/) |
 
 
-Features
-----------------------
+## Features
+
 From the menu bar a user can select about and exit options.
 From here they can also view latest log file and configuration file contents.
 The TV maze API associates a unique ID with each TV show called the Maze_ID.
@@ -153,8 +158,8 @@ There is a status light with 3 colours
 2. Yellow : busy , accessing network or files
 3. Red : network check failed, The network check is carried out at start up and when certain buttons fail it can turned off.
 
-Screenshot
---------------------
+## Screenshot
+
 
 There are screenshots in this repository in documentation folder. 
 
