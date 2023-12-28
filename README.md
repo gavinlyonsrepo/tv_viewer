@@ -40,7 +40,7 @@ Latest version 2.3.
 
 The program is present in python package index, Pypi.
 Install using *pip* or *pipx* to the location or environment of your choice.
-
+Package name = tv-viewer
 
 **Arch based Linux distribution**
 
