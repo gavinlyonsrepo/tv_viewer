@@ -15,10 +15,7 @@ from pathlib import Path
 from tv_tk_class import tv_tk_class as myTkGUI
 from tv_logger_conf import tv_logger_conf as my_log
 
-__version__ = "3.0.0"
-
-# =====================MAIN===============================
-if __name__ == "__main__":
+def main():
     #  logger
     logger = my_log.my_logging(__name__)
     logger.info("  Main Loop Start")
@@ -44,3 +41,7 @@ if __name__ == "__main__":
     # Run the main loop
     ui = myTkGUI.UiMainWindow(root)
     root.mainloop()
+
+# =====================MAIN===============================
+if __name__ == "__main__":
+    main()

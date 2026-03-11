@@ -33,7 +33,7 @@ No dependency outside of python standard library.
 
 ## Installation and Setup
 
-Latest version 3.0.0
+Latest version 3.0.3
 
 ### PyPi & pip , pipx
 
@@ -57,8 +57,8 @@ the program is packaged in the AUR as 'tv_viewer'.
 The package is also archived on github and can be manually download and installed
 
 ```sh
-curl -sL https://github.com/gavinlyonsrepo/tv_viewer/archive/3.0.0.tar.gz | tar xz
-cd tv_viewer-3.0.0
+curl -sL https://github.com/gavinlyonsrepo/tv_viewer/archive/3.0.3.tar.gz | tar xz
+cd tv_viewer-3.0.3
 pip install --user .
 ```
 
@@ -67,7 +67,7 @@ pip install --user .
 type below in terminal  to launch *or* select icon from Desktop app menus under Other( Linux only)
 
 ```sh
-tv_viewer.py
+tv_viewer
 ```
 
 ## File system

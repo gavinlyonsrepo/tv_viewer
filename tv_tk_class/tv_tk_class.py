@@ -15,7 +15,6 @@ from tkinter import messagebox, font as tkfont
 from tv_api_work import tv_api_work as myApi
 from tv_sqllite import tv_sqllite as mySql
 from tv_logger_conf import tv_logger_conf as myLog
-from tv_viewer import __version__
 
 # ================== GLOBALS ==========================
 LOGGER = myLog.my_logging(__name__)
@@ -319,7 +318,7 @@ class UiMainWindow(): # pylint: disable=too-many-instance-attributes, too-many-p
         self._listinfo_clear()
         self._listinfo_add(
             f"\n GUI program to view tv program details using tvmaze API"
-            f"\n Version :: {__version__}"
+            f"\n Version :: 3.0.3"
             f"\n Copyright :: Gavin Lyons 2017 GPL"
             f"\n URL :: https://github.com/gavinlyonsrepo/tv_viewer"
         )

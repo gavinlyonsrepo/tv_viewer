@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tv_viewer"
-version = "3.0.0"
+version = "3.0.3"
 readme = "README.md"
 authors = [
     { name = "Gavin Lyons", email = "glyons66@hotmail.com" }
@@ -13,7 +13,10 @@ description = "Python GUI to view tv program details using tvmaze API and SQLite
 license = { text = "GPL-3.0-or-later" }
 keywords = ["television", "tv_viewer", "tvmaze", "SQLite", "schedule", "API", "GUI"]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "requests",
+    "urllib3",
+]
 classifiers = [
     "Programming Language :: Python :: 3.10",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
