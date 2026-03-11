@@ -1,42 +1,46 @@
 #!/usr/bin/env python3
-""" tv_viewer : GUI to view tv program details using TV maze application
-programming interface. Written in python 3 and PyQt 5,
-it also stores user favourites in an
-SQLite database. It uses python module pytvmaze to interface with API
-and python module prettytable to help display results."""
-# =========================MAIN SCRIPT HEADER==================
-# title             :tv_viewer
-# description       :Main Script
-# author            :Gavin Lyons
-# version           :2.0
-# web               :https://github.com/gavinlyonsrepo/tv_viewer
-# python_version    :3.10.4
+""" 
+filename: tv_viewer 
+desc: GUI to view tv program details using TV maze application
+programming interface. Written in python 3 and Tkinter,
+it also stores user favourites in an SQLite database.
+This file is main script and entry point"""
 
 # ==========================IMPORTS======================
-# Import the system modules needed to run
 import sys
-import os
+import tkinter as tk
+import tkinter.font as tkfont
 from pathlib import Path
-from PyQt5 import QtWidgets
-from PyQt5.QtGui import QIcon
-
-
 # My modules
-from tv_qt_class import tv_qt_class as myqt
+from tv_tk_class import tv_tk_class as myTkGUI
 from tv_logger_conf import tv_logger_conf as my_log
+
+__version__ = "3.0.0"
 
 # =====================MAIN===============================
 if __name__ == "__main__":
+    #  logger
     logger = my_log.my_logging(__name__)
     logger.info("  Main Loop Start")
-    app = QtWidgets.QApplication(sys.argv)
-    if sys.platform == 'win32':
-        pass  # Icon not installed in windows version currently, TODO
-    else:
-        app.setWindowIcon(QIcon(os.environ['HOME'] + "/.local/share/icons/tv_viewer.png"))
-    MainWindow = QtWidgets.QMainWindow()
-    ui = myqt.Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
-# =====================END===============================
+    # Configure TK root window
+    root = tk.Tk()
+    ICON_REF = None  # prevent GC of icon image
+    # set global font size
+    font_size = my_log.settings.getint("Display", "font_size", fallback=int(11))
+    for name in tkfont.names(root):
+        f = tkfont.nametofont(name)
+        f.config(size=font_size)
+    # set Icon
+    if sys.platform.startswith("linux"):
+        icon_path = Path.home() / ".local/share/icons/tv_viewer.png"
+        if icon_path.exists():
+            try:
+                ICON_REF = tk.PhotoImage(file=str(icon_path))
+                root.iconphoto(True, ICON_REF )
+            except tk.TclError as e:
+                logger.warning("Could not set window icon: %s", e)
+            except OSError as e:
+                logger.warning("Could not read icon file: %s", e)
+    # Run the main loop
+    ui = myTkGUI.UiMainWindow(root)
+    root.mainloop()

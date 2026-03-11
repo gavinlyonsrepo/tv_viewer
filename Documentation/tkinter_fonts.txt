@@ -1,0 +1,8 @@
+Tkinter built-in font families —
+NameStyleCourierMonospace — good for aligned table dataH
+elveticaSans-serif — clean, modern
+TimesSerif — traditionalArial
+Sans-serif (Windows/Mac mainly)
+TkDefaultFontSystem default UI font
+TkTextFontSystem default text widget font
+TkFixedFontSystem default monospace font

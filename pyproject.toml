@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tv_viewer"
+version = "3.0.0"
+readme = "README.md"
+authors = [
+    { name = "Gavin Lyons", email = "glyons66@hotmail.com" }
+]
+description = "Python GUI to view tv program details using tvmaze API and SQLite"
+license = { text = "GPL-3.0-or-later" }
+keywords = ["television", "tv_viewer", "tvmaze", "SQLite", "schedule", "API", "GUI"]
+requires-python = ">=3.10"
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+]
+
+[project.urls]
+Homepage = "https://github.com/gavinlyonsrepo/tv_viewer"
+Download = "https://github.com/gavinlyonsrepo/tv_viewer/archive/3.0.0.tar.gz"
+
+[project.scripts]
+tv_viewer = "tv_viewer.tv_viewer:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tv_viewer*", "tv_tk_class*", "tv_sqllite*", "tv_api_work*", "tv_logger_conf*"]

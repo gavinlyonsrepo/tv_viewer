@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
-""" This module is called from tv_viewer.py to handle Sqllite
-database interaction, contains one class TvSqLight , 6 methods"""
-# =========================MODULE HEADER=======================================
-# title             :tv_sqllite.py
-# description       :This module from tv_viewer to handle Sqlite interaction
-# author            :Gavin Lyons
-# web               :https://github.com/gavinlyonsrepo/tv_viewer
-# python_version    :3.10.4
+""" 
+filename: tv_sqllite.py 
+description: This module is called from tv_viewer.py to handle Sqllite
+    database interaction, contains one class TvSqLight , 6 methods
+"""
 
 # ==========================IMPORTS======================
 # Import the system modules needed to run
-import os
 import sqlite3
 
 from tv_logger_conf import tv_logger_conf as my_log
@@ -31,9 +27,9 @@ class TvSqLight:
     def __init__(self, name):
         self.name = name
         self.connection = ""
-        if not os.path.exists(my_log.myconfigfile.config_file_path):
-            os.makedirs(my_log.myconfigfile.config_file_path)
-        self.path = my_log.myconfigfile.config_file_path / "fav.db"
+        config_dir = my_log.Settings.CONFIG_PATH.parent
+        config_dir.mkdir(parents=True, exist_ok=True)
+        self.path = config_dir / "fav.db"
 
     def create_db(self):
         """ Method to create the database one table two fields"""
